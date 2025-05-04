@@ -9,23 +9,26 @@ using Microsoft.CommandPalette.Extensions;
 
 namespace UniversalSearchSuggestions;
 
-[Guid("803d0b05-d97d-4896-8fc2-3e5a0144eaa7")]
+[Guid("3fadba00-c46f-4afb-b25c-ede7415287b7")]
 public sealed partial class UniversalSearchSuggestions : IExtension, IDisposable
 {
-    private readonly ManualResetEvent _disposeEvent;
+    private readonly ManualResetEvent _extensionDisposedEvent;
+
     private readonly UniversalSearchSuggestionsCommandsProvider _provider = new();
 
-    public UniversalSearchSuggestions(ManualResetEvent disposeEvent)
+    public UniversalSearchSuggestions(ManualResetEvent extensionDisposedEvent)
     {
-        _disposeEvent = disposeEvent;
+        this._extensionDisposedEvent = extensionDisposedEvent;
     }
 
-    public object? GetProvider(ProviderType type) =>
-        type switch
+    public object? GetProvider(ProviderType providerType)
+    {
+        return providerType switch
         {
             ProviderType.Commands => _provider,
-            _ => null
+            _ => null,
         };
+    }
 
-    public void Dispose() => _disposeEvent.Set();
+    public void Dispose() => this._extensionDisposedEvent.Set();
 }

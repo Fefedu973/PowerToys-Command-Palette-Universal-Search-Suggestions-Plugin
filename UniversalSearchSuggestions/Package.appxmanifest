@@ -47,7 +47,7 @@
         <com:Extension Category="windows.comServer">
           <com:ComServer>
             <com:ExeServer Executable="UniversalSearchSuggestions.exe" Arguments="-RegisterProcessAsComServer" DisplayName="Universal Search Suggestions">
-              <com:Class Id="803d0b05-d97d-4896-8fc2-3e5a0144eaa7" DisplayName="Universal Search Suggestions" />
+              <com:Class Id="3fadba00-c46f-4afb-b25c-ede7415287b7" DisplayName="Universal Search Suggestions" />
             </com:ExeServer>
           </com:ComServer>
         </com:Extension>
@@ -60,7 +60,7 @@
             <uap3:Properties>
               <CmdPalProvider>
                 <Activation>
-                  <CreateInstance ClassId="803d0b05-d97d-4896-8fc2-3e5a0144eaa7" />
+                  <CreateInstance ClassId="3fadba00-c46f-4afb-b25c-ede7415287b7" />
                 </Activation>
                 <SupportedInterfaces>
                   <Commands/>
